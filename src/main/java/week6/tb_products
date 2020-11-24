@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS `tb_products`;
+
+CREATE TABLE tb_products(
+    id bigint NOT NULL,
+    create_time timestamp NOT NULL COMMENT "创建时间",
+    update_time timestamp NOT NULL COMMENT "更新时间" ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    name varchar(50) NOT NULL COMMENT "商品名称",
+    original_price decimal(15,2) NOT NULL COMMENT "原价",
+    current_price decimal(15,2) NOT NULL COMMENT "现价",
+    inventory int(10) NOT NULL COMMENT "库存量",
+    category varchar(30) NOT NULL COMMENT "类目",
+    description varchar(200) NOT NULL COMMENT "商品描述",
+    status tinyint(2) NOT NULL DEFAULT 0 COMMENT "商品状态 0审核中/1已通过"，
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 CHARSET=utf8 COLLATE=utf_bin COMMENT='用户表';

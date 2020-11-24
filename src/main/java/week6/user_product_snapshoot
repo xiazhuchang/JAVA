@@ -1,0 +1,19 @@
+DROP TABLE IF EXISTS `user_product_snapshoot`;
+CREATE TABLE user_product_snapshoot (
+    id bigint,
+    create_time timestamp NOT NULL COMMENT "创建时间",
+    update_time timestamp NOT NULL COMMENT "更新时间" ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    serial_no varchar(30) NULL DEFAULT "" COMMENT "流水号",
+    user_id bigint NOT NULL COMMENT "关联用户",
+    product_id bigint NOT NULL COMMENT "关联商品",
+    count int NOT NULL COMMENT "购买数量",
+    user_phone bigint NOT NULL COMMENT "手机号",
+    user_address varchar(50) NOT NULL COMMENT "住址",
+    product_name varchar(50) NOT NULL COMMENT "商品名称",
+    product_original_price decimal(15,2) NOT NULL COMMENT "原价",
+    product_current_price decimal(15,2) NOT NULL COMMENT "现价",
+    product_inventory int(10) NOT NULL COMMENT "库存量",
+    product_category varchar(30) NOT NULL COMMENT "类目",
+    status tinyint(2) NOT NULL DEFAULT 0 COMMENT "快照状态 0未使用/10已使用/20已作废",
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 CHARSET=utf8 COLLATE=utf_bin COMMENT='用户表';

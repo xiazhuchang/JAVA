@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS `tb_user`;
+
+CREATE TABLE tb_user(
+    id bigint NOT NULL,
+    create_time timestamp NOT NULL COMMENT "创建时间",
+    update_time timestamp NOT NULL COMMENT "更新时间" ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    name varchar(30) NOT NULL COMMENT "姓名",
+    age tinyint(2) NOT NULL COMMENT "年龄",
+    phone bigint NOT NULL COMMENT "手机号",
+    address varchar(50) NOT NULL COMMENT "住址",
+    status tinyint(2) NOT NULL default 0 COMMENT "用户状态 0审核中/1审核通过",
+    nickname varchar(30) DEFAULT NULL COMMENT "用户昵称",
+    certificate_no varchar(32) NOT NULL COMMENT "证件号码"，
+    PRIMARY KEY (certificate_no)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf_bin COMMENT='用户表';
